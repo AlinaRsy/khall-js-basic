@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a id="link" href="https://github.com/AlinaRsy/khall-js-basic.git">ссылка на гит</a>
+
+    <script>
+        let price = +prompt('Введите цену товара');
+        let money = +prompt('Введите кол-во денег');
+        let message;
+        let result = document.createElement('p');
+        document.body.append(result);
+        if(price>money){
+            message = `Не хватает ${price-money} рублей`;  
+        }
+        else if(price<money){
+            message = `Покупка совершена. Ваша сдача ${money-price} рублей`; 
+        } else {
+            message = `Покупка совершена.`; 
+        }
+        result.append(message);
+        result.style.cssText = `
+        color: royalblue;
+        font-family: Arial;
+        font-size: 24px;
+        `
+
+        
+        
+    </script>
+</body>
+</html>
