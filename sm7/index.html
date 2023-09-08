@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a id="link" href="https://github.com/AlinaRsy/khall-js-basic.git">ссылка на гит</a>
+    <a href="#" id="btn" data-counter="1" class="btn">Добавить новость</a>
+    <div id="content" class="container"></div>
+    <script>
+        btn.onclick = function(){
+            let author = prompt('Ваше имя');
+            let name = prompt('Название новости');
+            let text = prompt('Текст новости');
+            let date = new Date();
+
+            let elem = document.createElement('div');
+            elem.setAttribute('id','elem');
+            content.append(elem);
+
+            let first = document.createElement('div');
+            first.setAttribute('id', 'flex');
+            elem.append(first);
+            
+            let nameElem = document.createElement('p');
+            nameElem.innerHTML = name;
+            nameElem.setAttribute('id', 'name');
+            first.append(nameElem);
+
+            let dateElem = document.createElement('p');
+            dateElem.setAttribute('id','date');
+            dateElem.innerHTML = `${date.getDate()}.${date.getMonth()+1}.${date.getFullYear()}`;
+            first.append(dateElem);
+
+            let textElem = document.createElement('p');
+            textElem.setAttribute('id','text');
+            textElem.innerHTML = text;
+            first.after(textElem);
+
+            let last = document.createElement('div');
+            last.setAttribute('id','flex_last');
+            elem.append(last);
+
+            let authorElem = document.createElement('p');
+            authorElem.setAttribute('id','author');
+            authorElem.innerHTML = author;
+            last.append(author);
+
+            let idElem = document.createElement('p');
+            idElem.setAttribute('id','id');
+            idElem.innerHTML = `id: ${btn.dataset.counter++}`;
+            last.append(idElem);
+        }
+
+       
+        
+
+        
+        
+    </script>
+</body>
+</html>
