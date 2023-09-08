@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a id="link" href="https://github.com/AlinaRsy/khall-js-basic.git">ссылка на гит</a>
+    <div id="content" class="container"></div>
+    <script>
+        let num;
+        while(true){
+            num = prompt('введите число',0);
+            if(isFinite(num) && num!=0 && num != '') break;
+        }
+        for(let i = 0; i<num; i++){
+            let elem = document.createElement('div');
+            content.append(elem);
+            elem.innerHTML = i+1;
+            content.style.cssText = `
+            margin:0 auto;
+            margin-top: 20px;
+            max-width:97%;
+            display:flex;
+            flex-wrap:wrap;
+            flex: 0 0 20%;
+            gap:16px;
+            `;
+            
+            elem.style.cssText = `
+            width:130px;
+            height:130px;
+            background-color: #B693FE;
+            color:white;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            font-family:Arial;
+            font-size:24px;
+            `
+        }
+        
+
+        
+        
+    </script>
+</body>
+</html>
