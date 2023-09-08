@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a id="link" href="https://github.com/AlinaRsy/khall-js-basic.git">ссылка на гит</a>
+    <div id="content" class="container"></div>
+    <script>
+        //         Создать массив из 5 объектов.
+    // Объект представляет собой новость, которая хранит id, name, author, date, text
+    // Необходимо создать 5 реальных новостей
+    let arr = [
+        {
+            id: 1, name: 'Название новости', author: 'Эмиль', date: '01.01.2022', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+        },
+        {
+            id: 2, name: 'Название новости', author: 'Эмиль', date: '01.01.2022', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+        },
+        {
+            id: 3, name: 'Название новости', author: 'Эмиль', date: '01.01.2022', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+        },
+        {
+            id: 4, name: 'Название новости', author: 'Эмиль', date: '01.01.2022', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+        },
+        {
+            id: 5, name: 'Название новости', author: 'Эмиль', date: '01.01.2022', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+        }
+    ]
+        for(let i = 0; i<arr.length; i++){
+            let elem = document.createElement('div');
+            elem.setAttribute('id','elem');
+            content.append(elem);
+
+            let first = document.createElement('div');
+            first.setAttribute('id', 'flex');
+            elem.append(first);
+            
+            let name = document.createElement('p');
+            name.innerHTML = arr[i].name;
+            name.setAttribute('id', 'name');
+            first.append(name);
+
+            let date = document.createElement('p');
+            date.setAttribute('id','date');
+            date.innerHTML = arr[i].date;
+            first.append(date);
+
+            let text = document.createElement('p');
+            text.setAttribute('id','text');
+            text.innerHTML = arr[i].text;
+            first.after(text);
+
+            let last = document.createElement('div');
+            last.setAttribute('id','flex_last');
+            elem.append(last);
+
+            let author = document.createElement('p');
+            author.setAttribute('id','author');
+            author.innerHTML = arr[i].author;
+            last.append(author);
+
+            let id = document.createElement('p');
+            id.setAttribute('id','id');
+            id.innerHTML = `id: ${arr[i].id}`;
+            last.append(id);
+        }
+
+        
+
+        
+        
+    </script>
+</body>
+</html>
