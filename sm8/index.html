@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a id="link" href="https://github.com/AlinaRsy/khall-js-basic.git">ссылка на гит</a>
+    
+    <div class="container">
+        <div id="accordion" class="accordion">
+        </div>
+    </div>
+    <script>
+        let arrAccordion = [
+            {
+                name: 'Дикобраз',
+                text: 'Это крупные грызуны с покровом из острых шипов или игл, которые защищают их от хищников. Термин охватывает два семейства животных: дикобразов Старого Света семейства Hystricidae и дикобразов Нового Света семейства Erethizontidae.'
+            },
+            {
+                name: 'Хомяк',
+                text: 'Подсемейство грызунов семейства хомяковых. Включает 19 видов, относящихся к семи родам. Стали популярными домашними питомцами. Самым известным видом хомяка является золотой или сирийский хомячок, который чаще всего используется в качестве домашних животных.'
+            },
+            {
+                name: 'Ведро',
+                text: 'Сосуд для хранения жидких и сыпучих материалов и транспортировки их на небольшие расстояния. Вёдра упомянуты в Библии Дометрическая единица измерения - ведро - составляла сороковую часть бочки, что приблизительно равно 12,3 литра.'
+            },
+            {
+                name: 'Дезоксирибонуклеиновая кислота',
+                text: 'Макромолекула, обеспечивающая хранение, передачу из поколения в поколение и реализацию генетической программы развития и функционирования живых организмов. Молекула ДНК хранит биологическую информацию в виде генетического кода.'
+            },
+        ];
+
+        let accordion = document.querySelector('.accordion');
+        for(let i = 0; i<arrAccordion.length; i++){
+            let accordionItem = document.createElement('div');
+            accordionItem.className = 'accordion__item';
+            accordion.append(accordionItem);
+            let accordionName = document.createElement('div');
+            accordionName.className = 'accordion__name';
+            accordionName.innerHTML = arrAccordion[i].name;
+            accordionItem.append(accordionName);
+            let accordionText = document.createElement('div');
+            accordionText.className = 'accordion__text';
+            accordionText.innerHTML = arrAccordion[i].text;
+            accordionItem.append(accordionText);
+        }
+        let accordionElems = document.querySelectorAll('.accordion__item');
+        for(let item of accordionElems){
+            item.onclick = function(event){
+                let target = event.target.closest('.accordion__name');
+                if(!target) return;
+                let text = item.querySelector('.accordion__text');
+                text.classList.toggle('active');
+                target.classList.toggle('open');
+            }
+        }
+        
+    </script>
+</body>
+</html>
