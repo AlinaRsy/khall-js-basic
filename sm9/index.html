@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a id="link" href="https://github.com/AlinaRsy/khall-js-basic.git">ссылка на гит</a>
+    
+    <div class="container">
+        <div class="p">
+            R - Красный
+        </div>
+        <div class="p">
+            G - Зеленый
+        </div>
+        <div class="p">
+            B - Синий
+        </div>
+    </div>
+    <script>
+       document.onkeydown = function(event){
+        if(event.key.toLowerCase() == 'r'){
+            document.body.style.background = 'red';
+        } else if(event.key.toLowerCase() == 'g'){
+            document.body.style.background = 'green';
+        } else if(event.key.toLowerCase() == 'b'){
+            document.body.style.background = 'blue';
+        }
+       }
+       document.onkeyup = function(event){
+        document.body.style.background = 'white';
+       }
+    
+    </script>
+</body>
+</html>
