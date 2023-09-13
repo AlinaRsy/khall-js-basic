@@ -31,15 +31,8 @@
         let isError = false;
         document.forms.form.addEventListener('submit', submitForm);
         function submitForm(event){
-            event.preventDefault();
-            if(!isError){
-                document.querySelector('.information').style.display = 'flex';
-            }else{
-                document.querySelector('.information').style.display = 'none';
-            }
-        }
-       inp_name.onblur = function(){
-        isError = false;
+            
+            isError = false;
         if(inp_name.value == ''){
             error.innerHTML = 'Введите имя';
             inp_name.classList.add('invalid');
@@ -50,8 +43,7 @@
             inp_name.classList.add('invalid');
             isError = true;
         }
-       }
-       inp_date.onblur = function(){
+
         isError = false;
         if(inp_date.value == ''){
             errorDate.innerHTML = 'Введите дату рождения';
@@ -73,7 +65,14 @@
             inp_date.classList.add('invalid');
             isError = true;
         }
-       }
+        event.preventDefault();
+            if(!isError){
+                document.querySelector('.information').style.display = 'flex';
+            }else{
+                document.querySelector('.information').style.display = 'none';
+            }
+        }
+      
        inp_name.onfocus = function(){
         this.classList.remove('invalid');
         error.innerHTML = '';
