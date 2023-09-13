@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a id="link" href="https://github.com/AlinaRsy/khall-js-basic.git">ссылка на гит</a>
+    <!-- 693jssm10 -->
+    <div class="container">
+        <form name="form" method="post">
+            <label for="name">Ваше имя</label>
+            <input type="text" name="name" id="inp_name">
+            <p class="warning error"></p>
+            <label for="date">Год вашего рождения</label>
+            <input type="text" name="date" id="inp_date">
+            <p class="warning error__date"></p> 
+            <input type="submit" class="btn" name="form" id="submit" value="Отправить">
+        </form>
+        <div class="information">
+            <p>Нормуль всё</p>
+            <a href="https://club.z-go.ru/" class="link">ссылка на клуб паутина</a>
+        </div>
+    </div>
+    <script>
+        let error = document.querySelector('.error');
+        let errorDate = document.querySelector('.error__date');
+        let currentYear = new Date().getFullYear();
+        let isError = false;
+        document.forms.form.addEventListener('submit', submitForm);
+        function submitForm(event){
+            event.preventDefault();
+            if(!isError){
+                document.querySelector('.information').style.display = 'flex';
+            }else{
+                document.querySelector('.information').style.display = 'none';
+            }
+        }
+       inp_name.onblur = function(){
+        isError = false;
+        if(inp_name.value == ''){
+            error.innerHTML = 'Введите имя';
+            inp_name.classList.add('invalid');
+            isError = true;
+        }
+        else if(inp_name.value.length < 2){
+            error.innerHTML = 'Введите не менее 2 символов';
+            inp_name.classList.add('invalid');
+            isError = true;
+        }
+       }
+       inp_date.onblur = function(){
+        isError = false;
+        if(inp_date.value == ''){
+            errorDate.innerHTML = 'Введите дату рождения';
+            inp_date.classList.add('invalid');
+            isError = true;
+        }
+        else if(!isFinite(inp_date.value)){
+            errorDate.innerHTML = 'Введите число';
+            inp_date.classList.add('invalid');
+            isError = true;
+        }
+        else if(inp_date.value.length < 4){
+            errorDate.innerHTML = 'Введите 4 цифры';
+            inp_date.classList.add('invalid');
+            isError = true;
+        }
+        else if(currentYear - inp_date.value < 18){
+            errorDate.innerHTML = 'Вы еще мелкий/ая';
+            inp_date.classList.add('invalid');
+            isError = true;
+        }
+       }
+       inp_name.onfocus = function(){
+        this.classList.remove('invalid');
+        error.innerHTML = '';
+       }
+       inp_date.onfocus = function(){
+        this.classList.remove('invalid');
+        errorDate.innerHTML = '';
+       }
+
+    </script>
+</body>
+</html>
